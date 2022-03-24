@@ -2,6 +2,9 @@
 
 This image is integrated by Wayne Richen, and it integrates PHP-FPM and Nginx, allowing you to build php and nginx with just one image.
 
+Docker Hub Repository: [waynerichen/php-nginx
+](https://hub.docker.com/r/waynerichen/php-nginx)
+
 # How to Use It?
 
 ### Use docker-compose
