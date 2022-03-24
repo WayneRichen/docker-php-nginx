@@ -35,9 +35,9 @@ RUN apt-get update && apt-get install -y \
     && echo "alias ll='ls -alhp --color=auto'\nalias grep='grep --color=auto'\nalias vi='vim'" >> /root/.bashrc \
     && echo "[global] \ndaemonize = no \n\n[www] \nlisten = /run/php8.1-fpm.sock \nlisten.mode = 0666" > /usr/local/etc/php-fpm.d/zz-docker.conf
 
-COPY /docker/nginx/default /etc/nginx/sites-available
+COPY /nginx/default /etc/nginx/sites-available
 
-COPY /docker/entry.sh /entry.sh
+COPY /entry.sh /entry.sh
 
 RUN chmod +x /entry.sh
 

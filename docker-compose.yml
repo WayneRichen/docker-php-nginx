@@ -3,30 +3,9 @@ services:
     container_name: php
     build:
       context: .
-      dockerfile: dockerfile/php-7.4/Dockerfile
+      dockerfile: dockerfile/php-8.1/Dockerfile
     ports:
         - 80:80        
     volumes:
         - ./html:/var/www/html
     restart: always
-  # mysql:
-  #   container_name: mysql
-  #   image: mariadb:10.3.32
-  #   command: --default-authentication-plugin=mysql_native_password
-  #   restart: always
-  #   ports:
-  #     - "3306:3306"
-  #   environment:
-  #     - MARIADB_ROOT_PASSWORD=123456
-  #   volumes:
-  #     - ./mysql:/var/lib/mysql
-  # phpmyadmin:
-  #   container_name: phpmyadmin
-  #   image: phpmyadmin:5.1.1
-  #   restart: always
-  #   depends_on:
-  #     - mysql
-  #   ports:
-  #     - "8080:80"
-  #   environment:
-  #     - PMA_HOST=mysql
