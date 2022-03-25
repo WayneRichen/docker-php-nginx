@@ -12,6 +12,7 @@ Docker Hub Repository: [waynerichen/php-nginx
 To use it in docker-compose, create a `docker-compose.yml` file with the following contents and your application will be mounted in the container at /var/www/html.
 
 ```
+version: "3"  # optional since v1.27.0
 services:
   php:
     container_name: php
@@ -40,6 +41,7 @@ This image contains following programs and extensions.
 
 - PHP-FPM (The version you choose)
 - Nginx
+- mariadb-client
 - composer 2.X
 - cron
 - git
@@ -92,3 +94,7 @@ This image contains following programs and extensions.
 - Zend OPcache
 - zip
 - zlib
+
+# Building Multi-Arch Images for Arm and x86
+
+`docker buildx build -t waynerichen/php-nginx:tagname --platform linux/amd64,linux/arm64 --push .`
