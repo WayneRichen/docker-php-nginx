@@ -11,7 +11,7 @@ Docker Hub Repository: [waynerichen/php-nginx
 
 To use it in docker-compose, create a `docker-compose.yml` file with the following contents and your application will be mounted in the container at /var/www/html.
 
-```
+```yaml
 version: "3"  # optional since v1.27.0
 services:
   php:
@@ -28,7 +28,7 @@ services:
 
 To use it in Dockerfile, create a `Dockerfile` with the following contents.
 
-```
+```dockerfile
 FROM waynerichen/php-nginx:tag-name
 COPY . /var/www/html
 ```
