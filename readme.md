@@ -68,6 +68,7 @@ This image contains following programs and extensions.
 - json
 - libxml
 - mbstring
+- mysqli
 - mysqlnd
 - openssl
 - pcre

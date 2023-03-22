@@ -32,9 +32,11 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install sockets \
     && docker-php-ext-install xsl \
     && docker-php-ext-install zip \
+    && docker-php-ext-install mysqli \
     && echo "alias ll='ls -alhp --color=auto'\nalias grep='grep --color=auto'\nalias vi='vim'" >> /root/.bashrc \
     && echo "[global] \ndaemonize = no \n\n[www] \nlisten = /run/php7.4-fpm.sock \nlisten.mode = 0666" > /usr/local/etc/php-fpm.d/zz-docker.conf \
     && echo "upload_max_filesize = 64M \npost_max_size = 64M \nmax_execution_time = 600 \nmax_file_uploads = 100" >  /usr/local/etc/php/conf.d/uploads.ini \
+    && sed -i 's/www-data/1000/;' /usr/local/etc/php-fpm.d/www.conf \
     && echo "#!/bin/bash\nservice nginx start\n/usr/sbin/cron\nservice postfix start\nphp-fpm" > /entry.sh \
     && sed -i 's/index.html/index.php index.html/;s/#location\s~\s\\.php\$\s{/location ~ \.php$ {/;s/#\sinclude snippets\/fastcgi-php.conf;/        include snippets\/fastcgi-php.conf;/;s/#\sfastcgi_pass\sunix:\/run\/php\/php7.3-fpm.sock;/        fastcgi_pass unix:\/run\/php7.4-fpm.sock;/;0,/#}/s//}/' /etc/nginx/sites-available/default \
     && sed -i 's/types_hash_max_size 2048;/types_hash_max_size 2048;\n        client_max_body_size 64M;/;' /etc/nginx/nginx.conf \
