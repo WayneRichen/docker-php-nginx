@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/* \
     && wget https://getcomposer.org/download/latest-2.x/composer.phar -O /usr/local/bin/composer && chmod +x /usr/local/bin/composer \
     && docker-php-ext-install bcmath \
+    && docker-php-ext-configure gd --with-freetype-dir --with-jpeg-dir \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install intl \
     && docker-php-ext-enable opcache \
