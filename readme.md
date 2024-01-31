@@ -45,7 +45,6 @@ This image contains following programs and extensions.
 - composer 2.X
 - cron
 - git
-- postfix
 - vim
 - wget
 - zip
