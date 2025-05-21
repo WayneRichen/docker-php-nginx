@@ -2,7 +2,7 @@ version: "3"  # optional since v1.27.0
 services:
   php:
     container_name: php
-    image: waynerichen/php-nginx:8.1-buster
+    image: waynerichen/php-nginx:8.3-bookworm
     ports:
         - 80:80        
     volumes:
